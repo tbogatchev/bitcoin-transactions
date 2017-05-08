@@ -4,10 +4,10 @@ export default class BitcoinTransactions extends React.Component {
   render() {
     return (
       <div>
-        <div>TESTING</div>
-        <button className="transactions" onClick={() => alert('click')}>
-          TESTING
-        </button>
+        <ul id="messages"></ul>
+        <form action="">
+          <input id="m" autoComplete="off" /><button>Send</button>
+        </form>
       </div>
     );
   }

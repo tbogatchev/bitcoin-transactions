@@ -4,10 +4,23 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bitcoint transactions</title>
+    <script>
+      var socket = new WebSocket('wss://ws.blockchain.info/inv');
+
+      socket.onopen = function () {
+        socket.send(JSON.stringify({ op: 'blocks_sub' }));
+        socket.send(JSON.stringify({ op: 'ping_tx'}));
+      }
+      socket.onmessage = function (msg) {
+        var data = msg.data;
+        console.log(data)
+      }
+    </script>
   </head>
   <body>
     <div>TESTING</div>
     <div id="main"></div>
     <script src="/bundle.js"></script>
+    <link rel="stylesheet" type="text/css" href="/app.css">
   </body>
 </html>

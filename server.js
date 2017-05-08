@@ -2,8 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const compression = require('compression');
-const path = require('path')
-
+const path = require('path');
 const app = express();
 
 // Enable compression, compress all responses
@@ -11,6 +10,7 @@ app.use(compression());
 
 // Assets
 app.use( express.static( __dirname + '/static' ));
+app.use( express.static( __dirname + '/style' ));
 
 const port = process.env.PORT || 2000;
 
