@@ -9,9 +9,9 @@ export default class BitcoinTransactions extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      transactions: [{value: 75621712, address: 12323412341234}, {value: 75621712, address: 12323412341234}, {value: 75621712, address: 12323412341234}, {value: 75621712, address: 12323412341234}],
-      total: 2398477213,
-      totalTransactions: 4
+      transactions: [],
+      total: 0,
+      totalTransactions: 0
     };
   }
 
@@ -66,12 +66,12 @@ export default class BitcoinTransactions extends React.Component {
       <div>
         <div className="title">Bitcoin Transaction Stream</div>
         <div className="streamContainer container">
-          <div className="transactionsContainer col">
-            {this.state.transactions.map(transaction =>
-              <Transaction value={ formatter.format(transaction.value) } address={ transaction.address }/>
+          <div className="col transactionsContainer">
+            {this.state.transactions.map((transaction, index) =>
+              <Transaction value={ formatter.format(transaction.value) } address={ transaction.address } key={ index }/>
             )}
           </div>
-          <div className="container col">
+          <div className="totalsContainer container col">
             <div className="col">
               <div>Total Value</div>
               <div>Total Transactions</div>

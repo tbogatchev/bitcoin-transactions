@@ -4,7 +4,7 @@ export default class Transaction extends React.Component {
   render() {
     const {value, address} = this.props;
     return (
-      <div className="container">
+      <div className="transaction container">
         <div className="col">
           <div>Value</div>
           <div>Address</div>
